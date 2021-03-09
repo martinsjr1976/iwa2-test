@@ -11,14 +11,17 @@ var port = 8000;
 app.use(bodyParser.json())
 
 app.get('/hello/:foo/:bar', (req, res) => {
-
     res.json({message: 'Hello BScBest!', data: [
-        req.param.foo,
-        req.param.bar
+        req.params.foo,
+        req.params.bar
     ]});
-    // res.send(users.join('\n'));
-
 });
+
+
+app.post('/hello', (req, res) => {
+    res.json({result: 'Post was sent', data: req.body});
+});
+
 
 // http.createServer((req, res)=>{
 //   res.write(users.join("\n")); //display the list of users on the page
