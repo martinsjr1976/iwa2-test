@@ -3,6 +3,8 @@ router = express.Router();
 
 var itemCtrl = require('./item-controller');
 
+// userCtrl = require('./user-controller');
+
 router.get('/hello', itemCtrl.getWorld);
 
 router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
