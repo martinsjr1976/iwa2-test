@@ -34,16 +34,22 @@ app.use(require('./routes'));
 //   }
 // })();
 
-mongoose.connect('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/test');
 
-mongoose.connection.on('error', (err) => { 
-    console.log('Mongodb Error: ', err); 
-    process.exit();
-});
-mongoose.connection.on('connected', () => { 
-    console.log('MongoDB is successfully connected');
-});
+// mongoose.connection.on('error', (err) => { 
+//     console.log('Mongodb Error: ', err); 
+//     process.exit();
+// });
+// mongoose.connection.on('connected', () => { 
+//     console.log('MongoDB is successfully connected');
+// });
 
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });
+
+const dbURI = "mongodb://localhost/test";
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then((result) => console.log('connected to db'))
+        .catch((err) => console.log(err));
